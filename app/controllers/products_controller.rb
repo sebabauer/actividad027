@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
   def create
-    a= Product.new(products_params)
-    a.save
+    @product = Product.new(products_params)
+    @product.save
+    redirect_to category_path(@product.category_id)
     #alternativamente con solo una linea Product.create(params)
   end
 
